@@ -1,0 +1,141 @@
+<!--<div class="container">-->
+<!--<div class="row">-->
+<!--<div class="col-xs-10">-->
+<!--<h2>Add Venue</h2>-->
+
+<!--</div>-->
+
+<!--</div>-->
+<!--<hr>-->
+<!--</div>-->
+
+<div class="container">
+
+  <form id="student-registration" name="student-registration" (ngSubmit)="onSubmit()" #studentRegistrationForm="ngForm">
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group row">
+          <label for="reg-no" class="col-xs-2 col-form-label lbl-top-buffer">Reg No</label>
+          <div class="col-xs-5">
+            <input class="form-control" type="text" [(ngModel)]="student.registerationNo" name="reg-no" id="reg-no"
+                   #regNo="ngModel" [disabled]="isStudentSelected()"  required>
+            <div [hidden]="regNo.valid || regNo.pristine"
+                 class="alert alert-danger">
+              Registration No is required
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="form-group row">
+          <label for="first-name" class="col-xs-2 col-form-label lbl-top-buffer">First Name</label>
+          <div class="col-xs-5">
+            <input class="form-control" type="text" [(ngModel)]="student.firstName" id="first-name" name="first-name"
+                   #firstName="ngModel" required>
+            <div [hidden]="firstName.valid || firstName.pristine"
+                 class="alert alert-danger">
+              First Name is required
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="last-name" class="col-xs-2 col-form-label lbl-top-buffer">Last Name</label>
+          <div class="col-xs-5">
+            <input class="form-control" type="text" [(ngModel)]="student.lastName" id="last-name" name="last-name"
+                   #lastName="ngModel" required>
+            <div [hidden]="lastName.valid || lastName.pristine"
+                 class="alert alert-danger">
+              Last Name is required
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="form-group row">
+          <label class="col-xs-2 col-form-label lbl-top-buffer">Gender</label>
+          <div class="col-xs-2">
+            <label class="lbl-top-buffer">
+              <input type="radio" [(ngModel)]="student.gender" id="male" name="gender"
+                     [value]="'male'">
+              Male
+            </label>
+          </div>
+
+          <div class="col-xs-2">
+            <label class="lbl-top-buffer">
+              <input type="radio" [(ngModel)]="student.gender" id="female" name="gender"
+                     [value]="'female'">
+              Female
+            </label>
+          </div>
+
+
+        </div>
+
+
+        <div class="form-group row">
+          <label for="contactNo" class="col-xs-2 col-form-label lbl-top-buffer">Phone</label>
+          <div class="col-xs-5">
+            <input class="form-control" type="text" [(ngModel)]="student.contactNo" id="contactNo" name="contactNo"
+                   #contactNo="ngModel" required>
+            <div [hidden]="contactNo.valid || contactNo.pristine"
+                 class="alert alert-danger">
+              Contact No is required
+            </div>
+          </div>
+        </div>
+
+
+        <div class="form-group row">
+          <label for="email" class="col-xs-2 col-form-label lbl-top-buffer">Email</label>
+          <div class="col-xs-5">
+            <input class="form-control" type="text" [(ngModel)]="student.email"
+                   id="email"
+                   name="email"
+                   #email="ngModel"
+                   pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$"
+                   required>
+            <div [hidden]="email.valid || email.pristine"
+                 class="alert alert-danger">
+              Email is required
+            </div>
+          </div>
+        </div>
+
+
+        <div class="form-group row">
+          <label for="address" class="col-xs-2 col-form-label lbl-top-buffer">Address</label>
+          <div class="col-xs-5">
+            <input class="form-control" type="text" [(ngModel)]="student.address" id="address" name="address"
+                   #address="ngModel" required>
+            <div [hidden]="address.valid || address.pristine"
+                 class="alert alert-danger">
+              Address is required
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <br/>
+    <div class=" row form-inline left-margin">
+      <!--<button confirm-dialog ng-confirm-message="Are you sure you want to save the changes?" ng-confirm="addVenue();"-->
+      <!--type="Save" class="btn btn-primary btn-md" ng-show="mapExsist && allVenues">Save-->
+      <!--</button>-->
+      <button type="submit" *ngIf="!isStudentSelected()" class="btn btn-primary btn-md"
+              [disabled]="!studentRegistrationForm.form.valid">Add
+      </button>
+
+      <button *ngIf="isStudentSelected()" type="submit" class="btn btn-primary btn-md"
+              [disabled]="!studentRegistrationForm.form.valid">Edit
+      </button>
+    </div>
+
+  </form>
+
+
+</div>

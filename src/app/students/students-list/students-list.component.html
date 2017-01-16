@@ -1,0 +1,60 @@
+<div class="container">
+  <!--<div class="row">-->
+    <!--<div class="col-xs-6">-->
+        <!--<input type="text" class="form-control" [(ngModel)]="searchedStudent" placeholder="Search Student"/>-->
+        <!--&lt;!&ndash;<div class="input-group-addon"><i class="material-icons md-60">search</i></div>&ndash;&gt;-->
+    <!--</div>-->
+    <!--&lt;!&ndash;<button type="submit" class="btn btn-default btn-lg" ng-disabled="selectedVenueList.length !== 1" ng-click="goToVenueDetails();">&ndash;&gt;-->
+    <!--&lt;!&ndash;Edit&ndash;&gt;-->
+    <!--&lt;!&ndash;</button>&ndash;&gt;-->
+  <!--</div>-->
+
+
+  <br/>
+  <div class="row" style="margin-left:0px; width:100%;">
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr style="background-color: #cccccc" >
+        <td>
+          <b>
+            Reg No.
+          </b>
+        </td>
+        <td>
+          <b>
+           Name
+          </b>
+        </td>
+        <td>
+          <b>
+            Edit
+          </b>
+        </td>
+        <td>
+          <b>
+            Delete
+          </b>
+        </td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr  *ngFor="let student of studentList" >
+        <td>
+          {{student.registerationNo}}
+        </td>
+        <td>
+          {{student.firstName +' '+ student.lastName}}
+        </td>
+        <td>
+          <button id="edit-button" class="btn btn-default btn-sm" (click)="onEdit(student)" >Edit</button>
+        </td>
+        <td>
+          <button id="delete-button" class="btn btn-danger btn-sm" (click)="onDelete(student)">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
